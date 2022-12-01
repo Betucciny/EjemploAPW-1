@@ -19,7 +19,7 @@ class LoginControl {
     public function testLogin() {
         if (isset($_POST['submit'])) {
             if (empty($_POST['username']) || empty($_POST['password'])) {
-                $this->setError("El nombre del usuario o e password no son validos");
+                $this->setError("El nombre del usuario o el password no son validos");
             } else {
                 $username = $_POST['username'];
                 $password = $_POST['password'];

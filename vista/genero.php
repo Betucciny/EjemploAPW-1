@@ -2,19 +2,23 @@
 require_once("inicio.php");
 require_once(__ROOT__ . "/control/SessionControl.php");
 require_once(__ROOT__ . "/modelo/UsuarioModelo.php");
-
+require_once(__ROOT__ . "/control/GeneroControl.php");
 SessionControl::testSession();
 SessionControl::checkSession();
 
 $usuario = unserialize(SessionControl::get("USUARIO"));
+$control = new GeneroControl();
+$catalogo = $control->getCatalogoGenero();
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">        
-        <title>Panel de Control</title>
+        <title>Género</title>
         <link href="css/master.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="css/menu.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="css/menu.css" media="all">
+        <link rel="stylesheet" type="text/css" href="css/login.css" media="all">
+        <script src="js/cat_genero.js" defer></script>
     </head>
     <body>
         <div id="wrap">
@@ -34,7 +38,21 @@ $usuario = unserialize(SessionControl::get("USUARIO"));
                 </div>
                 <?php require_once("menubar.php"); ?>
                 <seccion>
-                    <p class="seccion-titulo"> Bienvenido</p>       
+                    <p class="seccion-titulo">Catálogo de géneros</p> 
+                    <?php $control->printCatalogo($catalogo); ?>
+
+                    <div id="login" class="center">
+                        <h2>Seleccionado</h2>
+                        <form action="" method="post">
+                            <label>Nombre :</label>
+                            <input id="nombre" name="nombre" placeholder="Nombre del género" type="text">
+                            <label>Descripción :</label>
+
+                            <input id="descripcion" name="descripcion" placeholder="Descripción del genero" type="text">
+                            <input name="submit" type="submit" value=" Guardar ">
+                        </form>
+                    </div>
+
 
                 </seccion>
             </div>
