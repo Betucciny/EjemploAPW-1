@@ -3,22 +3,46 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/javascript.js to edit this template
  */
 
-const seleccionado = document.querySelectorAll("#genero");
-for
-  for (let i = 0; i < images.length; i++) {
-    images[i].onmouseover = function() {
-      var newNode = document.createElement("img");
-      var oldsrc=this.src;
-      var parts=oldsrc.split("/");
-      newNode.src="images/" + parts[parts.length-1];
-      newNode.style="border:solid 3px black;";
-      newNode.className='bigImg';
-      this.parentNode.appendChild(newNode);
-      console.log(this.src);
-    
+const radios = document.querySelectorAll("#genero");
 
-//const seleccionado = document.querySelector('input[name="genero"]:checked').value;
-//const renglon = document.querySelector(seleccionado);
+for (let i = 0; i < radios.length; i++) {
+    radios[i].onclick = function () {
+        const valor = radios[i].value;
+        const renglon = document.querySelector("#_" + valor);
+        const nombre = document.querySelector("#nombre");
+        const descripcion = document.querySelector("#descripcion");
+        const idgenero = document.querySelector("#idgenero");
+        nombre.disabled = true;
+        descripcion.disabled = true;
+        idgenero.value = valor;
+        nombre.value = renglon.childNodes[1].textContent;
+        descripcion.value = renglon.childNodes[2].textContent;
 
-console.log(seleccionado);
+    };
+
+
+    function nuevoRegistro() {
+        const nombre = document.querySelector("#nombre");
+        const descripcion = document.querySelector("#descripcion");
+        nombre.disabled = false;
+        descripcion.disabled = false;
+        nombre.value = '';
+        descripcion.value = '';
+    }
+
+    function modificarRegistro() {
+        const nombre = document.querySelector("#nombre");
+        const descripcion = document.querySelector("#descripcion");
+        nombre.disabled = false;
+        descripcion.disabled = false;
+        
+    }
+
+    const nuevo = document.querySelector("#nuevo");
+    const modificar = document.querySelector("#modificar");
+
+    nuevo.addEventListener('click', nuevoRegistro);
+    modificar.addEventListener('click', modificarRegistro);
+}
+
 

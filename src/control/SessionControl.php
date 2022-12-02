@@ -33,7 +33,7 @@ class SessionControl {
     }
 
     public static function checkSession() {
-        if ((self::get("CREATED") == false) || time() - self::get("CREATED") > 60) {
+        if ((self::get("CREATED") == false) || time() - self::get("CREATED") > 60*5) {
             self::destroy();
             header("Location:../index.php");
         }

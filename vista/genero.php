@@ -9,6 +9,7 @@ SessionControl::checkSession();
 $usuario = unserialize(SessionControl::get("USUARIO"));
 $control = new GeneroControl();
 $catalogo = $control->getCatalogoGenero();
+$control->createOrUpdate();
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,16 +40,22 @@ $catalogo = $control->getCatalogoGenero();
                 <?php require_once("menubar.php"); ?>
                 <seccion>
                     <p class="seccion-titulo">Catálogo de géneros</p> 
+
                     <?php $control->printCatalogo($catalogo); ?>
 
                     <div id="login" class="center">
-                        <h2>Seleccionado</h2>
+                        <h2>Operaciones</h2>
+                        <p>
+                            <input type="button" id="nuevo"  value="Nuevo">
+                            <input type="button" id="modificar" value="Modificar">
+                        </p> 
                         <form action="" method="post">
+                            <input type="hidden" value="" id="idgenero" name="idgenero">
                             <label>Nombre :</label>
-                            <input id="nombre" name="nombre" placeholder="Nombre del género" type="text">
+                            <input id="nombre" name="nombre" placeholder="Nombre del género" type="text" disabled>
                             <label>Descripción :</label>
 
-                            <input id="descripcion" name="descripcion" placeholder="Descripción del genero" type="text">
+                            <input id="descripcion" name="descripcion" placeholder="Descripción del genero" type="text" disabled>
                             <input name="submit" type="submit" value=" Guardar ">
                         </form>
                     </div>

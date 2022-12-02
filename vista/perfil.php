@@ -28,8 +28,8 @@ $usuario = unserialize(SessionControl::get("USUARIO"));
 
                 <div id="profile">
                     <?php
-                    echo "<strong>Bienvenido: </strong><em> " . $usuario->getNombre() . " </em><strong>/  Rol </strong>: <em> " . $usuario->getRol() . " </em>";
-                    ?>
+             echo "<strong>Bienvenido: </strong><em> " . $usuario->getNombre() . " </em><strong>/  Rol </strong>: <em> " . $usuario->getRol() . " </em>";
+            ?>
                     <strong id="logout"><a href="logout.php">Salir</a></strong>
                 </div>
                 <?php require_once("menubar.php"); ?>

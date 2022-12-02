@@ -23,7 +23,7 @@ class GeneroControl {
         echo '<table cellpadding="0" cellspacing="0" class="center">';
         echo '<tr><th>Opción</th><th>Nombre</th><th>Descripción</th></tr>',"\n";
         foreach ($catalogo as $value) {
-            echo '<tr id="'.$value->getId().'">';
+            echo '<tr id="_'.$value->getId().'">';
             echo '<td>', '<input type="radio" id="genero" name="genero" value="'.$value->getId().'">', '</td>';
             echo '<td>', $value->getNombre(), '</td>';
             echo '<td>', $value->getDescripcion(), '</td>';
@@ -31,5 +31,30 @@ class GeneroControl {
         }
         echo '</table><br />';
     }
+    
+    public function createOrUpdate() {
+        if (isset($_POST['submit'])) {
+            if (empty($_POST['nombre']) || empty($_POST['descripcion'])) {
+                $this->setError("El nombre del catalogo o la descripcion no son validos");
+            } else {
+
+                $escapedPost = $_POST;
+                $escapedPost = array_map('html_entity_decode', $escapedPost);
+                $nombre = $escapedPost['nombre'];
+                $descripcion = $escapedPost['descripcion'];
+                $idgenero = $escapedPost['idgenero'];
+
+                $servicio = new GeneroServicio();
+                $test = $servicio->createOrUpdateGenero($idgenero,$nombre,$descripcion);
+
+                if (isset($test)) {
+                    
+                } else {
+                    $this->setError("El nombre del usuario o el password no son validos");
+                }
+            }
+        }
+    }
+
 
 }
