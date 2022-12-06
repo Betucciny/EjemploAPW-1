@@ -10,7 +10,7 @@ class GeneroServicio extends Conexion {
     }
 
     public function get_genero() {
-        $sql = "SELECT *  FROM GENERO ";
+        $sql = "SELECT *  FROM genero ";
         $result = $this->_db->query($sql);
         if ($result) {
             $data = [];
