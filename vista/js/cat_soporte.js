@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/javascript.js to edit this template
  */
 
-const radios = document.querySelectorAll("#genero");
+const radios = document.querySelectorAll("#soporte");
 
 for (let i = 0; i < radios.length; i++) {
     radios[i].addEventListener('click', function () {
@@ -11,7 +11,7 @@ for (let i = 0; i < radios.length; i++) {
         const renglon = document.querySelector("#_" + valor);
         const nombre = document.querySelector("#nombre");
         const descripcion = document.querySelector("#descripcion");
-        const idgenero = document.querySelector("#idgenero");
+        const idgenero = document.querySelector("#idsoporte");
         nombre.disabled = true;
         descripcion.disabled = true;
         idgenero.value = valor;
@@ -24,9 +24,9 @@ for (let i = 0; i < radios.length; i++) {
  function nuevoRegistro() {
     const nombre = document.querySelector("#nombre");
     const descripcion = document.querySelector("#descripcion");
-    const idgenero = document.querySelector("#idgenero");
+    const idsoporte = document.querySelector("#idsoporte");
 
-    idgenero.value = '';
+    idsoporte.value = '';
     nombre.disabled = false;
     descripcion.disabled = false;
     nombre.value = '';

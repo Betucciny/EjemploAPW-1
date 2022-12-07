@@ -23,7 +23,7 @@ class SoporteServicio extends Conexion {
         }
     }
 
-    public function createOrUpdateGenero($idsoporte, $nombre, $descripcion) {
+    public function createOrUpdateSoporte($idsoporte, $nombre, $descripcion) {
         $insert = "INSERT INTO soporte(nombre, descripcion) VALUES('$nombre','$descripcion')";
         $update = "UPDATE soporte SET nombre = '$nombre' , descripcion = '$descripcion' WHERE id = $idsoporte";
 

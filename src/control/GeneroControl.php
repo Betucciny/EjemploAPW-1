@@ -31,7 +31,7 @@ class GeneroControl {
     
     public function printCheck($catalogo) {
         echo '<label>Escoge un genero:</label>';
-        echo '<select id="genero" name="genero">';
+        echo '<select id="genero" name="idgenero" disabled>';
         foreach ($catalogo as $value){
             echo ' <option value="',$value->getId(),'">',$value->getDescripcion(),'</option>';
         }

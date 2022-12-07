@@ -1,32 +1,47 @@
 const radios = document.querySelectorAll("#pelicula");
 
-radios[i].onclick = function () {
+for (let i = 0; i < radios.length; i++) {
+    radios[i].addEventListener('click', function () {
         const valor = radios[i].value;
+   
         const renglon = document.querySelector("#_" + valor);
-        const nombre = document.querySelector("#nombre");
-        const idpelicula = document.querySelector("#idpelicula");
-        const idgenero = document.querySelector("#idgenero");
-        const genero = document.querySelector("#genero");
         
+        const idpelicula = document.querySelector("#idpelicula");
+        const nombre = document.querySelector("#nombre");
+        const genero = document.querySelector("#genero");
+        const soporte = document.querySelector("#soporte");
+    
         nombre.disabled = true;
+        genero.disabled = true;
+        soporte.disabled = true;
         idpelicula.value = valor;
         nombre.value = renglon.childNodes[1].textContent;
+        genero.value = renglon.dataset.idgenero;
+        soporte.value = renglon.dataset.idsoporte;
         
-
-    };
-
-
-    function nuevoRegistro() {
+    });
+}
+ function nuevoRegistro() {
         const nombre = document.querySelector("#nombre");
         const idpelicula = document.querySelector("#idpelicula");
+        const genero = document.querySelector("#genero");
+        const soporte = document.querySelector("#soporte");
         nombre.disabled = false;
+        genero.disabled = false;
+        soporte.disabled = false;
         idpelicula.value = '';
         nombre.value = '';
+        
     }
 
     function modificarRegistro() {
         const nombre = document.querySelector("#nombre");
+        const idpelicula = document.querySelector("#idpelicula");
+        const genero = document.querySelector("#genero");
+        const soporte = document.querySelector("#soporte");
         nombre.disabled = false;
+        genero.disabled = false;
+        soporte.disabled = false;
         
     }
 
@@ -35,5 +50,3 @@ radios[i].onclick = function () {
 
     nuevo.addEventListener('click', nuevoRegistro);
     modificar.addEventListener('click', modificarRegistro);
-}
-

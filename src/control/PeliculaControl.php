@@ -45,14 +45,14 @@ class PeliculaControl {
 
     public function createOrUpdate() {
         if (isset($_POST['submit'])) {
-            if (empty($_POST['nombre']) || empty($_POST['idgenero']) || empty($_POST['idsoporte'])) {
+            if (empty($_POST['idpelicula']) || empty($_POST['idgenero']) || empty($_POST['idsoporte'])) {
                 $this->setError("El nombre del catalogo o la descripcion no son validos");
             } else {
 
                 $escapedPost = $_POST;
                 $escapedPost = array_map('html_entity_decode', $escapedPost);
                 $nombre = $escapedPost['nombre'];
-                $id = $escapedPost['id'];
+                $id = $escapedPost['idpelicula'];
                 $idgenero = $escapedPost['idgenero'];
                 $idsoporte = $escapedPost['idsoporte'];
 

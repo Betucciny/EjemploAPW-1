@@ -2,9 +2,7 @@
 require_once("inicio.php");
 require_once(__ROOT__ . "/control/SessionControl.php");
 require_once(__ROOT__ . "/modelo/UsuarioModelo.php");
-require_once(__ROOT__ . "/control/PeliculaControl.php");
-require_once (__ROOT__ . "/control/GeneroControl.php");
-require_once (__ROOT__ . "/control/SoporteControl.php");
+require_once(__ROOT__ . "/control/SoporteControl.php");
 SessionControl::testSession();
 SessionControl::checkSession();
 
@@ -17,12 +15,8 @@ if ($usuario->getRol() != 'administrador') {
 
 
 
-$control = new PeliculaControl();
-$catalogo = $control->getCatalogoPelicula();
-$control_genero = new GeneroControl();
-$catalogo_genero = $control_genero->getCatalogoGenero();
-$control_soporte = new SoporteControl();
-$catalogo_soporte = $control_soporte->getCatalogoSoporte();
+$control = new SoporteControl();
+$catalogo = $control->getCatalogoSoporte();
 
 $control->createOrUpdate();
 ?>
@@ -30,22 +24,12 @@ $control->createOrUpdate();
 <html>
     <head>
         <meta charset="utf-8">        
-        <title>Peliculas</title>
+        <title>Soporte</title>
         <link href="css/master.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="css/menu.css" media="all">
         <link rel="stylesheet" type="text/css" href="css/login.css" media="all">
-        <script src="js/cat_pelicula.js" defer></script>
+        <script src="js/cat_soporte.js" defer></script>
     </head>
-    <style>
-        select {
-     background: transparent;
-     border: none;
-     font-size: 14px;
-     height: 30px;
-     padding: 5px;
-     width: 250px;
-  }
-    </style>
     <body>
         <div id="wrap">
             <div class="container" >
@@ -64,7 +48,7 @@ $control->createOrUpdate();
                 </div>
                 <?php require_once("menubar.php"); ?>
                 <seccion>
-                    <p class="seccion-titulo">Catálogo de peliculas</p> 
+                    <p class="seccion-titulo">Catálogo de soporte</p> 
 
                     <?php $control->printCatalogo($catalogo); ?>
 
@@ -75,18 +59,14 @@ $control->createOrUpdate();
                             <input type="button" id="modificar" value="Modificar">
                         </p> 
                         <form action="" method="post">
-                            <input type="hidden" value="" id="idpelicula" name="idpelicula">
-                            <label>Titulo :</label>
-                            <input id="nombre" name="nombre" placeholder="Titulo" type="text" disabled>
+                            <input type="hidden" value="" id="idsoporte" name="idsoporte">
+                            <label>Nombre :</label>
+                            <input id="nombre" name="nombre" placeholder="Nombre del soporte" type="text" disabled>
+                            <label>Descripción :</label>
 
-                            <?php $control_genero->printCheck($catalogo_genero); ?>
-
-                            <?php $control_soporte->printCheck($catalogo_soporte); ?>
-
-                            <input type="submit" name="submit" id="nuevo"  value="Guardar" >
-                            
+                            <input id="descripcion" name="descripcion" placeholder="Descripción del soporte" type="text" disabled>
+                            <input name="submit" type="submit" value=" Guardar ">
                         </form>
-                        <span><?php echo $control->getError(); ?></span>
                     </div>
 
 
