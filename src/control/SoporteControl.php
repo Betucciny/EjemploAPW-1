@@ -31,7 +31,7 @@ class SoporteControl {
     
     public function printCheck($catalogo) {
         echo '<label>Escoge el soporte de tu pelicula:</label>';
-        echo '<select id="idsoporte" name="idsoporte">';
+        echo '<select id="soporte" name="soporte">';
         foreach ($catalogo as $value){
             echo ' <option value="',$value->getId(),'">',$value->getNombre(),'</option>';
         }

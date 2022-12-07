@@ -19,11 +19,13 @@ for (let i = 0; i < radios.length; i++) {
         descripcion.value = renglon.childNodes[2].textContent;
 
     };
+}
 
-
-    function nuevoRegistro() {
+ function nuevoRegistro() {
         const nombre = document.querySelector("#nombre");
         const descripcion = document.querySelector("#descripcion");
+        const idgenero = document.querySelector("#idgenero");
+        idgenero.value = "";
         nombre.disabled = false;
         descripcion.disabled = false;
         nombre.value = '';
@@ -43,6 +45,5 @@ for (let i = 0; i < radios.length; i++) {
 
     nuevo.addEventListener('click', nuevoRegistro);
     modificar.addEventListener('click', modificarRegistro);
-}
 
 

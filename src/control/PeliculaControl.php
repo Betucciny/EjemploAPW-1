@@ -33,8 +33,8 @@ class PeliculaControl {
         echo '<table cellpadding="0" cellspacing="0" class="center">';
         echo '<tr><th>Opción</th><th>Título</th><th>Género</th><th>Soporte</th></tr>', "\n";
         foreach ($catalogo as $value) {
-            echo '<tr id="' , $value->getId() , '" data-idgenero="', $value->getIdGenero() ,'" data-idsoporte="', $value->getIdSoporte() ,'">';
-            echo '<td>', '<input type="radio" id="genero" name="genero" value="' . $value->getId() . '">', '</td>';
+            echo '<tr id="_' , $value->getId() , '" data-idgenero="', $value->getIdGenero() ,'" data-idsoporte="', $value->getIdSoporte() ,'">';
+            echo '<td>', '<input type="radio" id="pelicula" name="pelicula" value="' . $value->getId() . '">', '</td>';
             echo '<td>', $value->getTitulo(), '</td>';
             echo '<td>', $value->getGenero(), '</td>';
             echo '<td>', $value->getSoporte(), '</td>';

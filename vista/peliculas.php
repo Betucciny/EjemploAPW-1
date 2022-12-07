@@ -73,6 +73,8 @@ $control->createOrUpdate();
 
                         <form action="" method="post">
                             <input type="hidden" value="" id="idpelicula" name="idpelicula">
+                            <input type="hidden" value="" id="idsoporte" name="idsoporte">
+                            <input type="hidden" value="" id="idgenero" name="idgenero">
                             <label>Titulo :</label>
                             <input id="nombre" name="nombre" placeholder="Titulo" type="text">
 

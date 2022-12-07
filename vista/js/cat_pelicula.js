@@ -1,35 +1,39 @@
 const radios = document.querySelectorAll("#pelicula");
 
-for (let i = 0; i < radios.length; i++) {
-    radios[i].onclick = function () {
+radios[i].onclick = function () {
         const valor = radios[i].value;
         const renglon = document.querySelector("#_" + valor);
         const nombre = document.querySelector("#nombre");
-        const idsoporte = document.querySelector("#idsoporte");
+        const idpelicula = document.querySelector("#idpelicula");
         const idgenero = document.querySelector("#idgenero");
-        const id = document.querySelector("#id");
+        const genero = document.querySelector("#genero");
+        
         nombre.disabled = true;
-        descripcion.disabled = true;
-        id.value = valor;
+        idpelicula.value = valor;
         nombre.value = renglon.childNodes[1].textContent;
-        descripcion.value = renglon.childNodes[2].textContent;
+        
 
     };
 
 
     function nuevoRegistro() {
         const nombre = document.querySelector("#nombre");
-        const descripcion = document.querySelector("#descripcion");
+        const idpelicula = document.querySelector("#idpelicula");
         nombre.disabled = false;
-        descripcion.disabled = false;
+        idpelicula.value = '';
         nombre.value = '';
-        descripcion.value = '';
     }
 
+    function modificarRegistro() {
+        const nombre = document.querySelector("#nombre");
+        nombre.disabled = false;
+        
+    }
 
     const nuevo = document.querySelector("#nuevo");
+    const modificar = document.querySelector("#modificar");
 
     nuevo.addEventListener('click', nuevoRegistro);
+    modificar.addEventListener('click', modificarRegistro);
 }
-
 

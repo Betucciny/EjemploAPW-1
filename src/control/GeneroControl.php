@@ -31,7 +31,7 @@ class GeneroControl {
     
     public function printCheck($catalogo) {
         echo '<label>Escoge un genero:</label>';
-        echo '<select id="idgenero" name="idgenero">';
+        echo '<select id="genero" name="genero">';
         foreach ($catalogo as $value){
             echo ' <option value="',$value->getId(),'">',$value->getDescripcion(),'</option>';
         }
@@ -43,7 +43,7 @@ class GeneroControl {
         echo '<tr><th>Opción</th><th>Nombre</th><th>Descripción</th></tr>', "\n";
         foreach ($catalogo as $value) {
             echo '<tr id="_' . $value->getId() . '">';
-            echo '<td>', '<input type="radio" id="pelicula" name="pelicula" value="' . $value->getId() . '">', '</td>';
+            echo '<td>', '<input type="radio" id="genero" name="genero" value="' . $value->getId() . '">', '</td>';
             echo '<td>', $value->getNombre(), '</td>';
             echo '<td>', $value->getDescripcion(), '</td>';
             echo '</tr>', "\n";
