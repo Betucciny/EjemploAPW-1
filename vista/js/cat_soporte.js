@@ -4,6 +4,8 @@
  */
 
 const radios = document.querySelectorAll("#soporte");
+const nuevo = document.querySelector("#nuevo");
+const modificar = document.querySelector("#modificar");
 
 for (let i = 0; i < radios.length; i++) {
     radios[i].addEventListener('click', function () {
@@ -17,7 +19,9 @@ for (let i = 0; i < radios.length; i++) {
         idgenero.value = valor;
         nombre.value = renglon.childNodes[1].textContent;
         descripcion.value = renglon.childNodes[2].textContent;
+        modificar.addEventListener('click', modificarRegistro);
     });
+    
     
 }
 
@@ -40,10 +44,9 @@ function modificarRegistro() {
     descripcion.disabled = false;
 }
 
-const nuevo = document.querySelector("#nuevo");
-const modificar = document.querySelector("#modificar");
+
 
 nuevo.addEventListener('click', nuevoRegistro);
-modificar.addEventListener('click', modificarRegistro);
+
 
 

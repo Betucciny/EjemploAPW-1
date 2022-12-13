@@ -1,4 +1,6 @@
 const radios = document.querySelectorAll("#pelicula");
+   const nuevo = document.querySelector("#nuevo");
+    const modificar = document.querySelector("#modificar");
 
 for (let i = 0; i < radios.length; i++) {
     radios[i].addEventListener('click', function () {
@@ -18,6 +20,7 @@ for (let i = 0; i < radios.length; i++) {
         nombre.value = renglon.childNodes[1].textContent;
         genero.value = renglon.dataset.idgenero;
         soporte.value = renglon.dataset.idsoporte;
+        modificar.addEventListener('click', modificarRegistro);
         
     });
 }
@@ -45,8 +48,7 @@ for (let i = 0; i < radios.length; i++) {
         
     }
 
-    const nuevo = document.querySelector("#nuevo");
-    const modificar = document.querySelector("#modificar");
+ 
 
     nuevo.addEventListener('click', nuevoRegistro);
-    modificar.addEventListener('click', modificarRegistro);
+    
