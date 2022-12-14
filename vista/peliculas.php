@@ -83,7 +83,7 @@ $control->createOrUpdate();
 
                             <?php $control_soporte->printCheck($catalogo_soporte); ?>
 
-                            <input type="submit" name="submit" id="nuevo"  value="Guardar" >
+                            <input type="submit" name="submit"  value=" Guardar " >
                             
                         </form>
                         <span><?php echo $control->getError(); ?></span>

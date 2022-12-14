@@ -45,7 +45,7 @@ class PeliculaControl {
 
     public function createOrUpdate() {
         if (isset($_POST['submit'])) {
-            if (empty($_POST['idpelicula']) || empty($_POST['idgenero']) || empty($_POST['idsoporte'])) {
+            if (empty($_POST['nombre']) || empty($_POST['idgenero']) || empty($_POST['idsoporte'])) {
                 $this->setError("El nombre del catalogo o la descripcion no son validos");
             } else {
 
